@@ -39,7 +39,7 @@ endif
 set laststatus=2
 set shortmess=atI
 if has('statusline')
-   set statusline=%<%F%m%r%h%w\ %=\ Line\ %l\/%L\ Col:\ %v\ (%P)
+   set statusline=%<%f%m%r%h%w\ %=\ Line\ %l\/%L\ Col:\ %v\ (%P)
 endif
 
 " :W and :Q are annoying
