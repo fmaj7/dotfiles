@@ -4,6 +4,7 @@ syntax on
 colorscheme wombat
 
 "###### Standard vim options ######
+filetype on
 set nocompatible           " Don't emulate vi's limitations
 set tabstop=4              " 4 spaces for tabs
 set shiftwidth=4           " 4 spaces for indents
@@ -38,7 +39,7 @@ endif
 set laststatus=2
 set shortmess=atI
 if has('statusline')
-   set statusline=%<%F\ %=\ Line\ %l\/%L\ Col:\ %v\ (%P)
+   set statusline=%<%F%m%r%h%w\ %=\ Line\ %l\/%L\ Col:\ %v\ (%P)
 endif
 
 " :W and :Q are annoying
