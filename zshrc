@@ -1,3 +1,17 @@
+#==============================================================================
+# Customize to local environment
+#==============================================================================
+
+###### cd Hacks ######
+#export CDPATH=/YOUR_1ST_DIR:/YOUR_2ND_DIR
+
+
+
+
+#==============================================================================
+# Global Settings
+#=============================================================================
+
 ###### history ######
 export HISTSIZE=2000
 export HISTFILE="$HOME/.history"
@@ -9,7 +23,7 @@ autoload -U colors && colors
 
 ###### other settings ######
 setopt autocd                      # avoid typing of cd
-setopt extendedglob                # extended globbing like cp ^*.(tar|bz2|gz) 
+setopt extendedglob                # extended globbing like cp ^*.(tar|bz2|gz)
 setopt autopushd                   # auto pushd
 
 ###### correction ######
@@ -59,6 +73,13 @@ export PS1="[%I :-)]> "            # customized theme
 # %{ [...] %} Begin and enter area that will not be printed. Useful for setting colors.
 
 
+
+###### Aliases #####
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias ......="cd ../../../../.."
 
 
 ##### Key Bindings ######
