@@ -56,7 +56,8 @@ zstyle ':completion:*:expand:*' tag-order all-expansions
 autoload -U promptinit             # initialize advanced prompt support
 promptinit
 # prompt off                       # prompt theme
-export PS1="[%I :-)]> "            # customized theme
+export PS1="%I >> "              # customized theme
+export RPROMPT="%~"
 # %n The username
 # %m The computer's hostname(truncated to the first period)
 # %M The computer's hostname
@@ -68,6 +69,7 @@ export PS1="[%I :-)]> "            # customized theme
 # %D System date(YY-MM-DD)Directories
 # %~ The current working directory. If you are in you are in your $HOME, this will be replaced by "~".
 # %d The current working directory. For the options mentioned above: You can prefix an integer to show only certain parts of your working path. If you entered %1d and found yourself in /usr/bin it would show bin. This can also be done with negative integers: %-1d using the same directory as above would show /.Formatting
+# %c current working directory
 # %U [...] %u Begin and end underlined print
 # %B [...] %b Begin and end bold print
 # %{ [...] %} Begin and enter area that will not be printed. Useful for setting colors.
