@@ -20,6 +20,19 @@ setopt hist_ignore_all_dups        # ignoring of duplicate history entries
 
 ###### Coloring ######
 autoload -U colors && colors
+#export LSCOLORS="Gxfxcxdxbxegedabagacad"
+#export LSCOLORS='gxcxcxdxbxgegdabaeacad'
+export LSCOLORS='exfxcxdxbxegedabagacad'
+#LSCOLORS='di=34:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+#export LSCOLORS
+
+# Enable ls colors
+if [ "$DISABLE_LS_COLORS" != "true" ]
+then
+    # Find the option for using colors in ls, depending on the version: 
+    # Linux or BSD
+    ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=auto' || alias ls='ls -G'
+fi
 
 ###### other settings ######
 setopt autocd                      # avoid typing of cd
