@@ -1,4 +1,5 @@
 "###### Coloring ######
+" set term=xterm
 set t_Co=256
 syntax on 
 colorscheme wombat
@@ -25,6 +26,7 @@ set ignorecase              " do case insentive matching
 set textwidth=0             " don't wrap words by default 
 set textwidth=80            " wraps a line with a break when you reach 80 chars
 set nowrap
+set mouse=a                 " Enabling scoll in vim
 
 " wrap the cursor to the previous/next line when reaching the beginning/end
 set whichwrap+=<,>,h,l,[,]
