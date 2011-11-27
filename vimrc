@@ -6,17 +6,28 @@ colorscheme wombat
 
 "###### Standard vim options ######
 filetype on
-set nocompatible           " Don't emulate vi's limitations
-set tabstop=4              " 4 spaces for tabs
-set shiftwidth=4           " 4 spaces for indents
-set smarttab               " Tab next line based on current line
-set expandtab             " Spaces for indentation
-set autoindent             " Automatically indent next line
-if has('smartindent')
-   set smartindent            " Indent next line based on current line
-endif
+set nocompatible            " Don't emulate vi's limitations
 
-set number
+" Identation
+set tabstop=2               " 4 spaces for tabs
+set shiftwidth=2            " 4 spaces for indents
+set smarttab                " Tab next line based on current line
+set expandtab               " Spaces for indentation
+set autoindent              " Automatically indent next line
+if has('smartindent')
+   set smartindent          " Indent next line based on current line
+endif
+autocmd FileType python set ts=4 | set shiftwidth=4 | set expandtab |
+  \ set autoindent | set softtabstop=4
+autocmd FileType make set noexpandtab | set tabstop=4 | set shiftwidth=4
+autocmd FileType text set tw=78
+
+" kill any trailing whitespace on save
+autocmd FileType c,cabal,cpp,haskell,javascript,php,python,readme,text
+  \ autocmd BufWritePre <buffer>
+  \ :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+
+set number                  " Show line numbers
 set ruler                   " ruler on the bottom
 set nobackup                " don't keep backup file
 set showcmd                 " show (partial) command in status line
@@ -36,10 +47,14 @@ vmap <silent> <Tab> >gv
 " shift-tab unindents
 vmap <silent> <S-Tab> <gv
 
+"###### Title ######
+"if has('title')
+"   set title
+"endif
+"let &titleold=getcwd()
+set notitle
+
 " Display a pretty statusline if possible
-if has('title')
-   set title
-endif
 set laststatus=2
 set shortmess=atI
 if has('statusline')
