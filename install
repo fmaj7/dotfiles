@@ -1,0 +1,19 @@
+#!/bin/bash
+BASEDIR=$(pwd)
+ZSH=$(which zsh)
+
+echo "Changing shell to zsh"
+echo "chsh -s $ZSH"
+chsh -s $ZSH
+
+echo "Inserting zshrc"
+echo "echo 'source $BASEDIR/zshrc' >> ~/.zshrc"
+echo "source $BASEDIR/zshrc" >> ~/.zshrc
+
+echo "Linking vim directory"
+echo "ln -s $BASEDIR/vim ~/.vim"
+ln -s $BASEDIR/vim ~/.vim
+
+echo "Inserting vimrc"
+echo "echo 'source $BASEDIR/vimrc' >> ~/.vimrc"
+echo "source $BASEDIR/vimrc" >> ~/.vimrc
