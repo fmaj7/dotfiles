@@ -37,6 +37,7 @@ set ignorecase              " do case insentive matching
 set textwidth=0             " don't wrap words by default 
 set textwidth=80            " wraps a line with a break when you reach 80 chars
 set nowrap
+set hlsearch                " highlight search results
 
 " wrap the cursor to the previous/next line when reaching the beginning/end
 set whichwrap+=<,>,h,l,[,]
