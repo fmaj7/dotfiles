@@ -99,6 +99,12 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+#up alias                                                                                                                                                        
+u () {                                                                                                                                                           
+   set -A ud                                                                                                                                                   
+   ud[1+${1-1}]=                                                                                                                                               
+   cd ${(j:..:/)ud}                                                                                                                                            
+}
 
 ##### Key Bindings ######
 bindkey "\e[1~" beginning-of-line # Home
