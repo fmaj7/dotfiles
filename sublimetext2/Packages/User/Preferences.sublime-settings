@@ -1,6 +1,5 @@
 {
-    "font_face": "Ubuntu Mono",
-    "font_size": 13.0,
+    "font_face": "Consolas",
     "ignored_packages":
     [
         "Vintage"
