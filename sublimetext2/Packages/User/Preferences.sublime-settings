@@ -1,5 +1,8 @@
 {
     "font_face": "Consolas",
+    // More Font Options
+    // "font_face": "Inconsolata", // good with small font
+    // "font_face": "DEJA VU SANS MONO",
     "ignored_packages":
     [
         "Vintage"
