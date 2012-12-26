@@ -40,6 +40,7 @@
     pager =
     excludesfile = ~/.gitignore
     safecrlf = true
+	editor = vim
 [push]
     default = matching
 [user]

@@ -6,14 +6,13 @@
 #export CDPATH=/YOUR_1ST_DIR:/YOUR_2ND_DIR
 
 
-
-
 #==============================================================================
 # Global Settings
 #==============================================================================
 
-###### env virables ######
+###### Git ######
 export GIT_SSH=/usr/bin/ssh # Added for a HACK to make eclipse work with github
+export GIT_PAGER="less"
 
 ###### history ######
 export HISTSIZE=2000
