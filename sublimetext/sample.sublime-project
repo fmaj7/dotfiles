@@ -1,0 +1,26 @@
+{
+  "folders": [
+    {
+      "path": "/Users/fmaj7/home/dev/projects/python"
+    }
+  ],
+  "build_systems": [
+    {
+      "selector": "source.python",
+      "working_dir": "/Users/fmaj7/home/dev/projects/python",
+      "path": "/Users/fmaj7/.virtualenvs/python3/bin",
+      "name": "Run in Python 3",
+      "cmd": [
+        "python3",
+        "-u",
+        "$file"
+      ],
+      "variants": [
+        {
+          "name": "Run in Python 3",
+          "cmd": ["python3", "-u", "$file"]
+        }
+      ]
+    }
+  ]
+}
