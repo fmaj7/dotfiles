@@ -5,10 +5,21 @@
 ###### cd Hacks ######
 #export CDPATH=/YOUR_1ST_DIR:/YOUR_2ND_DIR
 
-
 #==============================================================================
 # Global Settings
 #==============================================================================
+
+case $(uname -s) in
+  Darwin)
+    # MAC OS X specific setting
+    export PATH=/usr/local/bin:$PATH:~/home/bin
+  ;;
+esac
+
+# PYTHON
+## virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
 
 ###### Git ######
 export GIT_SSH=/usr/bin/ssh # Added for a HACK to make eclipse work with github
@@ -31,7 +42,7 @@ export LSCOLORS='exfxcxdxbxegedabagacad'
 # Enable ls colors
 if [ "$DISABLE_LS_COLORS" != "true" ]
 then
-    # Find the option for using colors in ls, depending on the version: 
+    # Find the option for using colors in ls, depending on the version:
     # Linux or BSD
     ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=auto' || alias ls='ls -G'
 fi
@@ -90,7 +101,6 @@ export RPROMPT="%~"
 # %{ [...] %} Begin and enter area that will not be printed. Useful for setting colors.
 
 
-
 ###### Aliases #####
 alias ..="cd .."
 alias ...="cd ../.."
@@ -98,11 +108,11 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
-#up alias                                                                                                                                                        
-u () {                                                                                                                                                           
-   set -A ud                                                                                                                                                   
-   ud[1+${1-1}]=                                                                                                                                               
-   cd ${(j:..:/)ud}                                                                                                                                            
+#up alias
+u () {
+   set -A ud
+   ud[1+${1-1}]=
+   cd ${(j:..:/)ud}
 }
 
 ##### Key Bindings ######
