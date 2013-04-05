@@ -19,7 +19,7 @@ esac
 # PYTHON
 ## virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
+[ -e /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 ###### Git ######
 export GIT_SSH=/usr/bin/ssh # Added for a HACK to make eclipse work with github
