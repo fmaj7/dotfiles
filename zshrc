@@ -118,20 +118,28 @@ u () {
 
 # Quick way to navigate between commonly used directories
 export MARKPATH=$HOME/.marks
-function jump { 
-    cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+function jump {
+    if [[ $# -gt 0 ]] && cd -P "$MARKPATH/$1" 2>/dev/null; then
+        echo "jumping to mark $1 -> $(pwd)"
+    else
+        echo "no such mark: $1"
+    fi
 }
-function mark { 
-    mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+function mark {
+    if [[ $# -gt 0 ]] && mkdir -p -m700 "$MARKPATH" && ln -s "$(pwd)" "$MARKPATH/$1"; then
+        echo "marked $1 -> $(pwd)"
+    else
+        echo "could not create mark: $1"
+    fi
 }
-function unmark { 
-    rm -i "$MARKPATH/$1"
+function unmark {
+    [[ -d "$MARKPATH" && $# -gt 0 ]] && rm -i -f "$MARKPATH/$1"
 }
 function marks {
-    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+    [[ -d "$MARKPATH" ]] && (ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo)
 }
 function _completemarks {
-  reply=($(ls $MARKPATH))
+    reply=($(ls $MARKPATH))
 }
 compctl -K _completemarks jump
 compctl -K _completemarks unmark
