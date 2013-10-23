@@ -118,31 +118,25 @@ u () {
 
 # Quick way to navigate between commonly used directories
 export MARKPATH=$HOME/.marks
-function jump {
-    if [[ $# -gt 0 ]] && cd -P "$MARKPATH/$1" 2>/dev/null; then
-        echo "jumping to mark $1 -> $(pwd)"
+function jump { 
+    cd -P "$MARKPATH/$1" 2>/dev/null || echo "no such mark: $1"
+}
+function mark { 
+    if (( $# == 0 )); then
+        MARK=$(basename "$(pwd)")
     else
-        echo "no such mark: $1"
+        MARK="$1"
+    fi
+    if read -q \?"mark $(pwd) as ${MARK}? (y/n) "; then
+        mkdir -p "$MARKPATH"; ln –s "$(pwd)" "$MARKPATH/$MARK"
     fi
 }
-function mark {
-    if [[ $# -gt 0 ]] && mkdir -p -m700 "$MARKPATH" && ln -s "$(pwd)" "$MARKPATH/$1"; then
-        echo "marked $1 -> $(pwd)"
-    else
-        echo "could not create mark: $1"
-    fi
-}
-function unmark {
-    [[ -d "$MARKPATH" && $# -gt 0 ]] && rm -i -f "$MARKPATH/$1"
+function unmark { 
+    rm -i "$MARKPATH/$1"
 }
 function marks {
-    [[ -d "$MARKPATH" ]] && (ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo)
+    ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
-function _completemarks {
-    reply=($(ls $MARKPATH))
-}
-compctl -K _completemarks jump
-compctl -K _completemarks unmark
 
 ##### Key Bindings ######
 bindkey "\e[1~" beginning-of-line # Home
