@@ -108,6 +108,8 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias ......="cd ../../../../.."
 
+###### Functions ######
+
 #up alias
 u () {
    set -A ud
@@ -137,6 +139,11 @@ function unmark {
 function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
+
+function copyScript {
+  find -name "*.R" | tar -cT - -f - | tar -C "$2" -xf -
+}
+
 
 ##### Key Bindings ######
 bindkey "\e[1~" beginning-of-line # Home
