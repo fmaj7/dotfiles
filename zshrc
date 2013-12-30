@@ -5,6 +5,9 @@
 ###### cd Hacks ######
 #export CDPATH=/YOUR_1ST_DIR:/YOUR_2ND_DIR
 
+export PATH="~/home/bin:$PATH"
+
+
 #==============================================================================
 # Global Settings
 #==============================================================================
@@ -12,9 +15,12 @@
 case $(uname -s) in
   Darwin)
     # MAC OS X specific setting
-    export PATH=/usr/local/bin:$PATH:~/home/bin
+    export PATH=/usr/local/opt/ruby/bin:/usr/local/bin:$PATH:~/home/bin
   ;;
 esac
+
+# ROR
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # PYTHON
 ## virtualenvwrapper
@@ -170,3 +176,8 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 
 
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/fmaj7/.gvm/bin/gvm-init.sh" ]] && source "/Users/fmaj7/.gvm/bin/gvm-init.sh"
