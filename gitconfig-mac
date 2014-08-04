@@ -41,8 +41,9 @@
     status = auto
     branch = auto
     interactive = auto
+	ui = always
 [core]
-    pager =
+	pager = less -F -X
     excludesfile = ~/.gitignore
     safecrlf = true
 	editor = vim
