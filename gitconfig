@@ -40,9 +40,11 @@
     pager =
     excludesfile = ~/.gitignore
     safecrlf = true
-	editor = vim
+    editor = vim
 [push]
     default = matching
 [user]
     name = fmaj7
     email = fmaj7@live.com
+[pull]
+    rebase = true
