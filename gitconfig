@@ -31,20 +31,25 @@
     hist = log --graph --pretty=format:'%C(cyan)%h%Creset -%C(yellow)%d%Creset %s %C(magenta)[%an]%Creset %Cgreen(%ad)%Creset' --date=relative
 
     vimdiff = difftool -y -t vimdiff
+
 [color]
     diff = auto
     status = auto
     branch = auto
     interactive = auto
+
 [core]
-    pager =
+    pager = less -F -X
     excludesfile = ~/.gitignore
     safecrlf = true
     editor = vim
+
 [push]
     default = matching
-[user]
-    name = fmaj7
-    email = fmaj7@live.com
+
 [pull]
     rebase = true
+
+# use separate file for username / github token / etc
+[include]
+    path = ~/.gitconfig.local
