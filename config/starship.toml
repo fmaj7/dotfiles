@@ -1,0 +1,42 @@
+# Which is equivalent to
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_state\
+$docker_context\
+$package\
+$dart\
+$golang\
+$java\
+$nim\
+$nodejs\
+$perl\
+$python\
+$nix_shell\
+$conda\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$cmd_duration\
+$custom\
+$time\
+$line_break\
+$jobs\
+$battery\
+$status\
+$character\
+"""
+
+[time]
+disabled = false
+format = '🕙 [$time]($style) '
+
+[character]
+success_symbol = "[🚀](bold green) "
+error_symbol = "[💣](bold red) "
